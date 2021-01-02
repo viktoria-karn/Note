@@ -30,11 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.заметкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.важноеtoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.label_hello = new System.Windows.Forms.Label();
             this.button_create_note = new System.Windows.Forms.Button();
             this.label_notes = new System.Windows.Forms.Label();
+            this.button_create_important_note = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.заметкиToolStripMenuItem,
-            this.toolStripMenuItem1,
+            this.важноеtoolStripMenuItem1,
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -60,12 +61,12 @@
             this.заметкиToolStripMenuItem.Text = "Заметки";
             this.заметкиToolStripMenuItem.Click += new System.EventHandler(this.заметкиToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // важноеtoolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(143, 34);
-            this.toolStripMenuItem1.Text = "Важные";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.важноеtoolStripMenuItem1.Name = "важноеtoolStripMenuItem1";
+            this.важноеtoolStripMenuItem1.Size = new System.Drawing.Size(143, 34);
+            this.важноеtoolStripMenuItem1.Text = "Важные";
+            this.важноеtoolStripMenuItem1.Click += new System.EventHandler(this.важноеToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -103,11 +104,22 @@
             this.label_notes.TabIndex = 3;
             this.label_notes.Text = "label1";
             // 
+            // button_create_important_note
+            // 
+            this.button_create_important_note.Location = new System.Drawing.Point(650, 97);
+            this.button_create_important_note.Name = "button_create_important_note";
+            this.button_create_important_note.Size = new System.Drawing.Size(118, 61);
+            this.button_create_important_note.TabIndex = 4;
+            this.button_create_important_note.Text = "Создать важную заметку";
+            this.button_create_important_note.UseVisualStyleBackColor = true;
+            this.button_create_important_note.Click += new System.EventHandler(this.button_create_important_note_Click);
+            // 
             // Form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_create_important_note);
             this.Controls.Add(this.label_notes);
             this.Controls.Add(this.button_create_note);
             this.Controls.Add(this.label_hello);
@@ -127,11 +139,12 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem заметкиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem важноеtoolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.Label label_hello;
         private System.Windows.Forms.Button button_create_note;
         private System.Windows.Forms.Label label_notes;
+        private System.Windows.Forms.Button button_create_important_note;
     }
 }
 

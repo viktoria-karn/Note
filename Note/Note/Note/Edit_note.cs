@@ -25,7 +25,7 @@ namespace Note
             textBox_text.Font = new Font("Georgia", this.Height / 25);
 
 
-            StreamReader fi = new StreamReader("note.txt", true);
+            StreamReader fi = new StreamReader(Form_main.file_name, true);
             string line;
             int in_number = 0;
 
@@ -47,7 +47,7 @@ namespace Note
         private void button_save_edit_note_Click(object sender, EventArgs e)
         {
             int count = Form_main.number;
-            StreamReader file = new StreamReader("note.txt");
+            StreamReader file = new StreamReader(Form_main.file_name);
             StreamWriter new_file = new StreamWriter("new_note.txt", false);
             string line;
             for (int i = 0; i < count; ++i)
@@ -82,7 +82,7 @@ namespace Note
             new_file.Close();
 
             file.Close();
-            StreamWriter file_edit = new StreamWriter("note.txt", false);
+            StreamWriter file_edit = new StreamWriter(Form_main.file_name, false);
             StreamReader new_file_edit = new StreamReader("new_note.txt");
             while (!new_file_edit.EndOfStream)
             {
@@ -94,6 +94,12 @@ namespace Note
             new_file_edit.Close();
             File.Delete("new_note.txt");
             this.Hide();
+            Form_main form = new Form_main();
+            form.Show();
+        }
+
+        private void Edit_note_Closed(object sender, FormClosedEventArgs e)
+        {
             Form_main form = new Form_main();
             form.Show();
         }

@@ -26,7 +26,6 @@ namespace Note
 
         private void button_save_Click(object sender, EventArgs e)
         {
-            //File.Create("note.txt");
             ++Form_main.count_notes;
             StreamWriter sw = new StreamWriter("new_note.txt", false, Encoding.UTF8);
             sw.WriteLine(textBox_title.Text);
@@ -35,7 +34,7 @@ namespace Note
             sw.WriteLine("---###---");
             textBox_title.Text = "";
             textBox_text.Text = "";
-            StreamReader file = new StreamReader("note.txt", Encoding.UTF8);
+            StreamReader file = new StreamReader(Form_main.file_name, Encoding.UTF8);
             string line;
             while (!file.EndOfStream)
             {
@@ -44,7 +43,7 @@ namespace Note
             }
             sw.Close();
             file.Close();
-            StreamWriter new_file = new StreamWriter("note.txt", false, Encoding.UTF8);
+            StreamWriter new_file = new StreamWriter(Form_main.file_name, false, Encoding.UTF8);
             StreamReader new_edit_file = new StreamReader("new_note.txt", Encoding.UTF8);
             while (!new_edit_file.EndOfStream)
             {
@@ -55,6 +54,12 @@ namespace Note
             new_edit_file.Close();
             File.Delete("new_note.txt");
             this.Hide();
+            Form_main form = new Form_main();
+            form.Show();
+        }
+
+        private void New_Note_Closed(object sender, FormClosedEventArgs e)
+        {
             Form_main form = new Form_main();
             form.Show();
         }

@@ -75,7 +75,8 @@
             this.Controls.Add(this.textBox_date);
             this.Controls.Add(this.textBox_title);
             this.Name = "New_Note";
-            this.Text = "New_Note";
+            this.Text = "Создание новой заметки";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.New_Note_Closed);
             this.Load += new System.EventHandler(this.New_Note_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

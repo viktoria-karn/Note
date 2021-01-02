@@ -88,6 +88,7 @@
             this.Controls.Add(this.textBox_title);
             this.Name = "Note";
             this.Text = "Note";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_main_Closed);
             this.Load += new System.EventHandler(this.Note_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
