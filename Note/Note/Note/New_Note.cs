@@ -27,7 +27,7 @@ namespace Note
         private void button_save_Click(object sender, EventArgs e)
         {
             //File.Create("note.txt");
-            ++Form_main.number;
+            ++Form_main.count_notes;
             StreamWriter sw = new StreamWriter("new_note.txt", false, Encoding.UTF8);
             sw.WriteLine(textBox_title.Text);
             sw.WriteLine(textBox_date.Text);

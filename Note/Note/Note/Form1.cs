@@ -14,6 +14,7 @@ namespace Note
     public partial class Form_main : Form
     {
         public static int number = 0;
+        public static int count_notes = 0;
         public Form_main()
         {
 
@@ -25,7 +26,7 @@ namespace Note
                 {
                     string line = file.ReadLine();
                     if (line == "---###---")
-                        ++number;
+                        ++count_notes;
                 }
                 file.Close();
         }
@@ -47,7 +48,7 @@ namespace Note
                 label_notes.Text = "Ваши заметки:";
                 label_notes.Show();
                 button_create_note.Show();
-                if (number == 0)
+                if (count_notes == 0)
                 {
                     MessageBox.Show("У Вас нет созданных заметок");
                 }
@@ -55,7 +56,7 @@ namespace Note
                 {
                     StreamReader file = new StreamReader("note.txt", Encoding.UTF8);
                     string line;
-                    RichTextBox[] tb = new RichTextBox[number];
+                    RichTextBox[] tb = new RichTextBox[count_notes];
 
                     for (int i = 0; i < tb.Length; ++i)
                     {
@@ -64,7 +65,9 @@ namespace Note
                         tb[i].Width = 200;
                         tb[i].Height = 50;
                         tb[i].Font = new Font("Georgia", this.Height / 45);
+                        tb[i].Tag = i;
                         Controls.Add(tb[i]);
+                    tb[i].Click += new System.EventHandler(this.textBox_Click);
                         line = file.ReadLine();
                         tb[i].Text = line.ToString() + Environment.NewLine;
                         line = file.ReadLine();
@@ -77,7 +80,12 @@ namespace Note
                     file.Close();
                 }
             }
-
+            private void textBox_Click(object sender, EventArgs e)
+        {
+            number = Convert.ToInt32((sender as RichTextBox).Tag);
+            Note note = new Note();
+            note.Show();
+        }
             private void button_create_note_Click(object sender, EventArgs e)
             {
                 this.Hide();
