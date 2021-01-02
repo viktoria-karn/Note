@@ -17,23 +17,13 @@ namespace Note
         public static int count_notes = 0;
         public Form_main()
         {
-
             InitializeComponent();
             label_notes.Hide();
             button_create_note.Hide();
-                StreamReader file = new StreamReader("note.txt", Encoding.UTF8);
-                while (!file.EndOfStream)
-                {
-                    string line = file.ReadLine();
-                    if (line == "---###---")
-                        ++count_notes;
-                }
-                file.Close();
         }
 
             private void Form_main_Load(object sender, EventArgs e)
-            {
-               
+            {          
                
             }
 
@@ -44,7 +34,17 @@ namespace Note
 
             private void заметкиToolStripMenuItem_Click(object sender, EventArgs e)
             {
-                label_hello.Hide();
+            count_notes = 0;
+            StreamReader f = new StreamReader("note.txt", Encoding.UTF8);
+            while (!f.EndOfStream)
+            {
+                string line = f.ReadLine();
+                if (line == "---###---")
+                    ++count_notes;
+            }
+            f.Close();
+
+            label_hello.Hide();
                 label_notes.Text = "Ваши заметки:";
                 label_notes.Show();
                 button_create_note.Show();
@@ -57,7 +57,6 @@ namespace Note
                     StreamReader file = new StreamReader("note.txt", Encoding.UTF8);
                     string line;
                     RichTextBox[] tb = new RichTextBox[count_notes];
-
                     for (int i = 0; i < tb.Length; ++i)
                     {
                         tb[i] = new RichTextBox();
@@ -82,6 +81,7 @@ namespace Note
             }
             private void textBox_Click(object sender, EventArgs e)
         {
+            this.Hide();
             number = Convert.ToInt32((sender as RichTextBox).Tag);
             Note note = new Note();
             note.Show();
