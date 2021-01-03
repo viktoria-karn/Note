@@ -72,6 +72,7 @@
             this.button_edit.TabIndex = 4;
             this.button_edit.Text = "Редактировать заметку";
             this.button_edit.UseVisualStyleBackColor = true;
+            this.button_edit.Click += new System.EventHandler(this.button_edit_Click);
             // 
             // button_delete
             // 

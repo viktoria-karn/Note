@@ -52,5 +52,12 @@ namespace Note
             Form_main form = new Form_main();
             form.Show();
         }
+
+        private void button_edit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Edit_planner_note edit_planner_note = new Edit_planner_note();
+            edit_planner_note.Show();
+        }
     }
 }

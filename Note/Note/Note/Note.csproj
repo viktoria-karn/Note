@@ -52,6 +52,12 @@
     <Compile Include="Edit_note.Designer.cs">
       <DependentUpon>Edit_note.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_planner_note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_planner_note.Designer.cs">
+      <DependentUpon>Edit_planner_note.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Edit_note.resx">
       <DependentUpon>Edit_note.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_planner_note.resx">
+      <DependentUpon>Edit_planner_note.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
