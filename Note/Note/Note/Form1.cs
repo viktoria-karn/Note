@@ -16,6 +16,7 @@ namespace Note
         public static int number = 0;
         public static int count_notes = 0;
         public static int count_important_notes = 0;
+        public static int count_planner = 0;
         public static string file_name;
         public static string help_file_name;
         
@@ -58,6 +59,7 @@ namespace Note
                 label_notes.Show();
                 button_create_note.Show();
             button_create_important_note.Hide();
+            button_create_planner_note.Hide();
 
             if (count_notes == 0)
                 {
@@ -97,7 +99,14 @@ namespace Note
             Note note = new Note();
             note.Show();
         }
-            private void button_create_note_Click(object sender, EventArgs e)
+        private void textBox_planner_note_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            number = Convert.ToInt32((sender as RichTextBox).Tag);
+            Planner_note planner_note = new Planner_note();
+            planner_note.Show();
+        }
+        private void button_create_note_Click(object sender, EventArgs e)
             {
             file_name = "note.txt";
             this.Hide();
@@ -128,6 +137,7 @@ namespace Note
             label_notes.Show();
             button_create_note.Hide();
             button_create_important_note.Show();
+            button_create_planner_note.Hide();
             count_important_notes = 0;
             StreamReader f = new StreamReader("important_note.txt", Encoding.UTF8);
             while (!f.EndOfStream)
@@ -167,6 +177,73 @@ namespace Note
                 }
                 file.Close();
             }
+        }
+
+        private void ежедневникtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            file_name = "planner.txt";
+            foreach (Control c in this.Controls)
+            {
+                if (c is RichTextBox)
+                {
+                    c.Hide();
+                }
+            }
+            label_hello.Hide();
+            label_notes.Text = "Ежедневник:";
+            label_notes.Show();
+            button_create_note.Hide();
+            button_create_important_note.Hide();
+            button_create_planner_note.Show();
+            count_planner = 0;
+            StreamReader f = new StreamReader("planner.txt", Encoding.UTF8);
+            while (!f.EndOfStream)
+            {
+                string line = f.ReadLine();
+                if (line == "---###---")
+                    ++count_planner;
+            }
+            f.Close();
+            if (count_planner == 0)
+            {
+                MessageBox.Show("У Вас заметок в ежедневнике");
+            }
+            else
+            {
+                
+                StreamReader file = new StreamReader("planner.txt", Encoding.UTF8);
+                string line;
+                RichTextBox[] tb = new RichTextBox[count_planner];
+                for (int i = 0; i < tb.Length; ++i)
+                {
+                    tb[i] = new RichTextBox();
+                    tb[i].Location = new Point(190, i * 50 + 70);
+                    tb[i].Width = 200;
+                    tb[i].Height = 50;
+                    tb[i].Font = new Font("Georgia", this.Height / 45);
+                    tb[i].Tag = i;
+                    Controls.Add(tb[i]);
+                    tb[i].Click += new EventHandler(this.textBox_planner_note_Click);
+                    line = file.ReadLine();
+                    tb[i].Text = line.ToString() + Environment.NewLine;
+                    line = file.ReadLine();
+                    tb[i].Text += line.ToString() + Environment.NewLine;
+                    line = file.ReadLine();
+                    tb[i].Text += line.ToString() + Environment.NewLine;
+                    while ((line = file.ReadLine()) != "---###---")
+                    {
+
+                    }
+                }
+                file.Close();
+            }
+        }
+
+        private void button_create_planner_note_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            New_planner_note new_planner_note = new New_planner_note();
+            new_planner_note.Show();
         }
     }
 }

@@ -31,11 +31,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.заметкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.важноеtoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ежедневникtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_hello = new System.Windows.Forms.Label();
             this.button_create_note = new System.Windows.Forms.Button();
             this.label_notes = new System.Windows.Forms.Label();
             this.button_create_important_note = new System.Windows.Forms.Button();
+            this.button_create_planner_note = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.заметкиToolStripMenuItem,
             this.важноеtoolStripMenuItem1,
-            this.toolStripMenuItem2});
+            this.ежедневникtoolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(156, 450);
@@ -68,11 +69,12 @@
             this.важноеtoolStripMenuItem1.Text = "Важные";
             this.важноеtoolStripMenuItem1.Click += new System.EventHandler(this.важноеToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // ежедневникtoolStripMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(143, 34);
-            this.toolStripMenuItem2.Text = "Ежедневник";
+            this.ежедневникtoolStripMenuItem.Name = "ежедневникtoolStripMenuItem";
+            this.ежедневникtoolStripMenuItem.Size = new System.Drawing.Size(143, 34);
+            this.ежедневникtoolStripMenuItem.Text = "Ежедневник";
+            this.ежедневникtoolStripMenuItem.Click += new System.EventHandler(this.ежедневникtoolStripMenuItem_Click);
             // 
             // label_hello
             // 
@@ -114,11 +116,22 @@
             this.button_create_important_note.UseVisualStyleBackColor = true;
             this.button_create_important_note.Click += new System.EventHandler(this.button_create_important_note_Click);
             // 
+            // button_create_planner_note
+            // 
+            this.button_create_planner_note.Location = new System.Drawing.Point(650, 107);
+            this.button_create_planner_note.Name = "button_create_planner_note";
+            this.button_create_planner_note.Size = new System.Drawing.Size(118, 61);
+            this.button_create_planner_note.TabIndex = 5;
+            this.button_create_planner_note.Text = "Создать заметку для ежедневника";
+            this.button_create_planner_note.UseVisualStyleBackColor = true;
+            this.button_create_planner_note.Click += new System.EventHandler(this.button_create_planner_note_Click);
+            // 
             // Form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button_create_planner_note);
             this.Controls.Add(this.button_create_important_note);
             this.Controls.Add(this.label_notes);
             this.Controls.Add(this.button_create_note);
@@ -140,11 +153,12 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem заметкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem важноеtoolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem ежедневникtoolStripMenuItem;
         private System.Windows.Forms.Label label_hello;
         private System.Windows.Forms.Button button_create_note;
         private System.Windows.Forms.Label label_notes;
         private System.Windows.Forms.Button button_create_important_note;
+        private System.Windows.Forms.Button button_create_planner_note;
     }
 }
 
