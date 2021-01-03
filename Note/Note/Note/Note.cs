@@ -62,21 +62,16 @@ namespace Note
                 string line;
                 for (int i = 0; i < count; ++i)
                 {
-                    line = file.ReadLine();
-                    new_file.WriteLine(line);
-                    line = file.ReadLine();
-                    new_file.WriteLine(line);
-                    while (line != "---###---")
+                    while ((line = file.ReadLine()) != "---###---")
                     {
                         line = file.ReadLine();
                         new_file.WriteLine(line);
                     }
                 }
-                line = file.ReadLine();
-                line = file.ReadLine();
-                while (line != "---###---")
+            
+                while ((line = file.ReadLine()) != "---###---")
                 {
-                    line = file.ReadLine();
+                  
                 }
                 while (!file.EndOfStream)
                 {

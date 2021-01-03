@@ -82,6 +82,7 @@
             this.button_delete.TabIndex = 5;
             this.button_delete.Text = "Удалить заметку";
             this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
             // Planner_note
             // 

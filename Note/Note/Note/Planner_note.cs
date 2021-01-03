@@ -59,5 +59,49 @@ namespace Note
             Edit_planner_note edit_planner_note = new Edit_planner_note();
             edit_planner_note.Show();
         }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show(this, "Вы действительно хотите удалить заметку из ежедневника?", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
+            {
+                int count = Form_main.number;
+                StreamReader file = new StreamReader(Form_main.file_name);
+                StreamWriter new_file = new StreamWriter("new_note.txt", false);
+                string line;
+                for (int i = 0; i < count; ++i)
+                {
+                    while ((line = file.ReadLine()) != "---###---")
+                    {
+                        new_file.WriteLine(line);
+                    }
+                }
+                while ((line = file.ReadLine()) != "---###---")
+                {
+                
+                }
+                while (!file.EndOfStream)
+                {
+                    line = file.ReadLine();
+                    new_file.WriteLine(line);
+                }
+                new_file.Close();
+                file.Close();
+                StreamWriter file_edit = new StreamWriter(Form_main.file_name, false);
+                StreamReader new_file_edit = new StreamReader("new_note.txt");
+                while (!new_file_edit.EndOfStream)
+                {
+                    line = new_file_edit.ReadLine();
+                    file_edit.WriteLine(line);
+
+                }
+                file_edit.Close();
+                new_file_edit.Close();
+                --Form_main.count_notes;
+            }
+            this.Hide();
+            Form_main form = new Form_main();
+            form.Show();
+        }
     }
 }
