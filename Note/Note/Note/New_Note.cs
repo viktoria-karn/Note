@@ -21,7 +21,10 @@ namespace Note
         private void New_Note_Load(object sender, EventArgs e)
         {
             textBox_date.Text = DateTime.Now.ToLongDateString();
-            
+            textBox_title.Font = new Font("Georgia", this.Height / 40);
+            textBox_date.Font = new Font("Georgia", this.Height / 40);
+            richTextBox_text.Font = new Font("Georgia", this.Height / 40);
+
         }
 
         private void button_save_Click(object sender, EventArgs e)
@@ -30,10 +33,10 @@ namespace Note
             StreamWriter sw = new StreamWriter("new_note.txt", false, Encoding.UTF8);
             sw.WriteLine(textBox_title.Text);
             sw.WriteLine(textBox_date.Text);
-            sw.WriteLine(textBox_text.Text);
+            sw.WriteLine(richTextBox_text.Text);
             sw.WriteLine("---###---");
             textBox_title.Text = "";
-            textBox_text.Text = "";
+            richTextBox_text.Text = "";
             StreamReader file = new StreamReader(Form_main.file_name, Encoding.UTF8);
             string line;
             while (!file.EndOfStream)

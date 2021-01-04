@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.заметкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.важноеtoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +38,7 @@
             this.label_notes = new System.Windows.Forms.Label();
             this.button_create_important_note = new System.Windows.Forms.Button();
             this.button_create_planner_note = new System.Windows.Forms.Button();
+            this.label_about = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,9 +90,10 @@
             // 
             // button_create_note
             // 
-            this.button_create_note.Location = new System.Drawing.Point(650, 85);
+            this.button_create_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button_create_note.Location = new System.Drawing.Point(664, 65);
             this.button_create_note.Name = "button_create_note";
-            this.button_create_note.Size = new System.Drawing.Size(118, 73);
+            this.button_create_note.Size = new System.Drawing.Size(124, 76);
             this.button_create_note.TabIndex = 2;
             this.button_create_note.Text = "Создать заметку";
             this.button_create_note.UseVisualStyleBackColor = true;
@@ -108,9 +111,10 @@
             // 
             // button_create_important_note
             // 
-            this.button_create_important_note.Location = new System.Drawing.Point(650, 97);
+            this.button_create_important_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button_create_important_note.Location = new System.Drawing.Point(664, 66);
             this.button_create_important_note.Name = "button_create_important_note";
-            this.button_create_important_note.Size = new System.Drawing.Size(118, 61);
+            this.button_create_important_note.Size = new System.Drawing.Size(124, 75);
             this.button_create_important_note.TabIndex = 4;
             this.button_create_important_note.Text = "Создать важную заметку";
             this.button_create_important_note.UseVisualStyleBackColor = true;
@@ -118,26 +122,41 @@
             // 
             // button_create_planner_note
             // 
-            this.button_create_planner_note.Location = new System.Drawing.Point(650, 107);
+            this.button_create_planner_note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button_create_planner_note.Location = new System.Drawing.Point(664, 66);
             this.button_create_planner_note.Name = "button_create_planner_note";
-            this.button_create_planner_note.Size = new System.Drawing.Size(118, 61);
+            this.button_create_planner_note.Size = new System.Drawing.Size(124, 73);
             this.button_create_planner_note.TabIndex = 5;
             this.button_create_planner_note.Text = "Создать заметку для ежедневника";
             this.button_create_planner_note.UseVisualStyleBackColor = true;
             this.button_create_planner_note.Click += new System.EventHandler(this.button_create_planner_note_Click);
             // 
+            // label_about
+            // 
+            this.label_about.AutoSize = true;
+            this.label_about.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label_about.Location = new System.Drawing.Point(178, 98);
+            this.label_about.Name = "label_about";
+            this.label_about.Size = new System.Drawing.Size(486, 24);
+            this.label_about.TabIndex = 6;
+            this.label_about.Text = "MyNotes-это удобный инструмент для планирования";
+            // 
             // Form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1288, 450);
+            this.Controls.Add(this.label_about);
             this.Controls.Add(this.button_create_planner_note);
             this.Controls.Add(this.button_create_important_note);
             this.Controls.Add(this.label_notes);
             this.Controls.Add(this.button_create_note);
             this.Controls.Add(this.label_hello);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form_main";
             this.Text = "MyNotes";
             this.Load += new System.EventHandler(this.Form_main_Load);
@@ -159,6 +178,7 @@
         private System.Windows.Forms.Label label_notes;
         private System.Windows.Forms.Button button_create_important_note;
         private System.Windows.Forms.Button button_create_planner_note;
+        private System.Windows.Forms.Label label_about;
     }
 }
 

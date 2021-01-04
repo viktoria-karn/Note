@@ -20,9 +20,9 @@ namespace Note
 
         private void Note_Load(object sender, EventArgs e)
         {
-            textBox_title.Font = new Font("Georgia", this.Height / 25);
-            textBox_date.Font = new Font("Georgia", this.Height / 25);
-            textBox_text.Font = new Font("Georgia", this.Height / 25);
+            textBox_title.Font = new Font("Georgia", this.Height / 40);
+            textBox_date.Font = new Font("Georgia", this.Height / 40);
+            richTextBox_text.Font = new Font("Georgia", this.Height / 40);
 
 
             StreamReader fi = new StreamReader(Form_main.file_name, true);
@@ -38,7 +38,7 @@ namespace Note
                 while ((line = fi.ReadLine()) != "---###---")
                 {
                     if (in_number == Form_main.number)
-                        textBox_text.Text += line.ToString() + System.Environment.NewLine;
+                        richTextBox_text.Text += line.ToString() + System.Environment.NewLine;
                 }
             }
             fi.Close();
@@ -92,6 +92,7 @@ namespace Note
                 new_file_edit.Close();
                 --Form_main.count_notes;
             }
+            MessageBox.Show(this, "Заметка успешно удалена", "Удаление заметки", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Hide();
             Form_main form = new Form_main();
             form.Show();

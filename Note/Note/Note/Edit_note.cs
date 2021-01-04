@@ -20,9 +20,9 @@ namespace Note
 
         private void Edit_note_Load(object sender, EventArgs e)
         {
-            textBox_title.Font = new Font("Georgia", this.Height / 25);
-            textBox_date.Font = new Font("Georgia", this.Height / 25);
-            textBox_text.Font = new Font("Georgia", this.Height / 25);
+            textBox_title.Font = new Font("Georgia", this.Height / 40);
+            textBox_date.Font = new Font("Georgia", this.Height / 40);
+            richTextBox_text.Font = new Font("Georgia", this.Height / 40);
 
 
             StreamReader fi = new StreamReader(Form_main.file_name, true);
@@ -38,7 +38,7 @@ namespace Note
                 while ((line = fi.ReadLine()) != "---###---")
                 {
                     if (in_number == Form_main.number)
-                        textBox_text.Text += line.ToString() + System.Environment.NewLine;
+                        richTextBox_text.Text += line.ToString() + System.Environment.NewLine;
                 }
             }
             fi.Close();
@@ -52,27 +52,20 @@ namespace Note
             string line;
             for (int i = 0; i < count; ++i)
             {
-                line = file.ReadLine();
-                new_file.WriteLine(line);
-                line = file.ReadLine();
-                new_file.WriteLine(line);
-                while (line != "---###---")
+                while ((line = file.ReadLine()) != "---###---")
                 {
-                    line = file.ReadLine();
                     new_file.WriteLine(line);
                 }
             }
 
             new_file.WriteLine((textBox_title.Text).Replace(Environment.NewLine, " "));
             new_file.WriteLine((textBox_date.Text).Replace(Environment.NewLine, " "));
-            new_file.WriteLine((textBox_text.Text).Replace(Environment.NewLine, " "));
+            new_file.WriteLine((richTextBox_text.Text).Replace(Environment.NewLine, " "));
             new_file.WriteLine("---###---");
 
-            line = file.ReadLine();
-            line = file.ReadLine();
-            while (line != "---###---")
+            while ((line = file.ReadLine()) != "---###---")
             {
-                line = file.ReadLine();
+        
             }
             while (!file.EndOfStream)
             {
@@ -93,6 +86,7 @@ namespace Note
             file_edit.Close();
             new_file_edit.Close();
             File.Delete("new_note.txt");
+            MessageBox.Show(this, "Заметка успешно отредактирована", "Редактирование заметки", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Hide();
             Form_main form = new Form_main();
             form.Show();

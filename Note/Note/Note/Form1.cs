@@ -26,15 +26,25 @@ namespace Note
             label_notes.Hide();
             button_create_note.Hide();
             button_create_important_note.Hide();
+            button_create_planner_note.Hide();
         }
 
             private void Form_main_Load(object sender, EventArgs e)
             {
-            }
+       
+            label_about.Text += Environment.NewLine;
+            label_about.Text += Environment.NewLine;
+            label_about.Text += "В разделе \"Заметки\" Вы можете создавать обычные заметки,а также редактировать и удалять их" + Environment.NewLine;
+            label_about.Text += Environment.NewLine;
+            label_about.Text += "Важные заметки Вы можете создавать в отдельном разделе \"Важное\" " + Environment.NewLine;
+            label_about.Text += Environment.NewLine;
+            label_about.Text += "Если Вам нужно создать заметку,для которой предусмотрен срок выполнения,воспользуйтесь разделом \"Ежедневник\" " + Environment.NewLine;
+        }
 
         
         private void заметкиToolStripMenuItem_Click(object sender, EventArgs e)
             {
+            this.Size= new Size(816, 489);
             file_name = "note.txt";
             foreach (Control c in this.Controls)
             {
@@ -55,7 +65,8 @@ namespace Note
             f.Close();
 
             label_hello.Hide();
-                label_notes.Text = "Ваши заметки:";
+            label_about.Hide();
+            label_notes.Text = "Ваши заметки:";
                 label_notes.Show();
                 button_create_note.Show();
             button_create_important_note.Hide();
@@ -74,16 +85,16 @@ namespace Note
                     {
                         tb[i] = new RichTextBox();
                         tb[i].Location = new Point(190, i * 50 + 70);
-                        tb[i].Width = 200;
+                        tb[i].Width = 400;
                         tb[i].Height = 50;
-                        tb[i].Font = new Font("Georgia", this.Height / 45);
+                        tb[i].Font = new Font("Georgia", this.Height / 40);
                         tb[i].Tag = i;
                         Controls.Add(tb[i]);
                     tb[i].Click += new System.EventHandler(this.textBox_Click);
                         line = file.ReadLine();
                         tb[i].Text = line.ToString() + Environment.NewLine;
                         line = file.ReadLine();
-                        tb[i].Text += line.ToString() + Environment.NewLine;
+                        tb[i].Text += "Дата создания заметки: "+line.ToString() + Environment.NewLine;
                         while ((line = file.ReadLine()) != "---###---")
                         {
 
@@ -123,6 +134,7 @@ namespace Note
 
         private void важноеToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Size = new Size(816, 489);
             file_name = "important_note.txt";
             foreach (Control c in this.Controls)
             {
@@ -133,6 +145,7 @@ namespace Note
             }
            
             label_hello.Hide();
+            label_about.Hide();
             label_notes.Text = "Ваши важные заметки:";
             label_notes.Show();
             button_create_note.Hide();
@@ -160,16 +173,16 @@ namespace Note
                 {
                     tb[i] = new RichTextBox();
                     tb[i].Location = new Point(190, i * 50 + 70);
-                    tb[i].Width = 200;
+                    tb[i].Width = 400;
                     tb[i].Height = 50;
-                    tb[i].Font = new Font("Georgia", this.Height / 45);
+                    tb[i].Font = new Font("Georgia", this.Height / 40);
                     tb[i].Tag = i;
                     Controls.Add(tb[i]);
                     tb[i].Click += new System.EventHandler(this.textBox_Click);
                     line = file.ReadLine();
                     tb[i].Text = line.ToString() + Environment.NewLine;
                     line = file.ReadLine();
-                    tb[i].Text += line.ToString() + Environment.NewLine;
+                    tb[i].Text += "Дата создания заметки: "+line.ToString() + Environment.NewLine;
                     while ((line = file.ReadLine()) != "---###---")
                     {
 
@@ -181,6 +194,7 @@ namespace Note
 
         private void ежедневникtoolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Size = new Size(816, 489);
             file_name = "planner.txt";
             foreach (Control c in this.Controls)
             {
@@ -190,6 +204,7 @@ namespace Note
                 }
             }
             label_hello.Hide();
+            label_about.Hide();
             label_notes.Text = "Ежедневник:";
             label_notes.Show();
             button_create_note.Hide();
@@ -206,7 +221,7 @@ namespace Note
             f.Close();
             if (count_planner == 0)
             {
-                MessageBox.Show("У Вас заметок в ежедневнике");
+                MessageBox.Show("У Вас нет заметок в ежедневнике");
             }
             else
             {
@@ -218,18 +233,18 @@ namespace Note
                 {
                     tb[i] = new RichTextBox();
                     tb[i].Location = new Point(190, i * 50 + 70);
-                    tb[i].Width = 200;
-                    tb[i].Height = 50;
-                    tb[i].Font = new Font("Georgia", this.Height / 45);
+                    tb[i].Width = 400;
+                    tb[i].Height = 60;
+                    tb[i].Font = new Font("Georgia", this.Height / 40);
                     tb[i].Tag = i;
                     Controls.Add(tb[i]);
                     tb[i].Click += new EventHandler(this.textBox_planner_note_Click);
                     line = file.ReadLine();
                     tb[i].Text = line.ToString() + Environment.NewLine;
                     line = file.ReadLine();
-                    tb[i].Text += line.ToString() + Environment.NewLine;
+                    tb[i].Text += "Дата создания заметки: "+line.ToString() + Environment.NewLine;
                     line = file.ReadLine();
-                    tb[i].Text += line.ToString() + Environment.NewLine;
+                    tb[i].Text += "Срок выполнения: "+line.ToString() + Environment.NewLine;
                     while ((line = file.ReadLine()) != "---###---")
                     {
 
