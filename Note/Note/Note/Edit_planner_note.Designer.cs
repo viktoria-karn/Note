@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit_planner_note));
             this.textBox_title = new System.Windows.Forms.TextBox();
-            this.textBox_date = new System.Windows.Forms.TextBox();
             this.button_save_edit_planner_note = new System.Windows.Forms.Button();
             this.dateTimePicker_deadline = new System.Windows.Forms.DateTimePicker();
             this.richTextBox_text = new System.Windows.Forms.RichTextBox();
@@ -38,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox_date = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox_title
@@ -46,13 +46,6 @@
             this.textBox_title.Name = "textBox_title";
             this.textBox_title.Size = new System.Drawing.Size(240, 20);
             this.textBox_title.TabIndex = 0;
-            // 
-            // textBox_date
-            // 
-            this.textBox_date.Location = new System.Drawing.Point(57, 130);
-            this.textBox_date.Name = "textBox_date";
-            this.textBox_date.Size = new System.Drawing.Size(179, 20);
-            this.textBox_date.TabIndex = 1;
             // 
             // button_save_edit_planner_note
             // 
@@ -120,11 +113,20 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Текст:";
             // 
+            // textBox_date
+            // 
+            this.textBox_date.Location = new System.Drawing.Point(57, 130);
+            this.textBox_date.Name = "textBox_date";
+            this.textBox_date.ReadOnly = true;
+            this.textBox_date.Size = new System.Drawing.Size(190, 20);
+            this.textBox_date.TabIndex = 12;
+            // 
             // Edit_planner_note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox_date);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -132,7 +134,6 @@
             this.Controls.Add(this.richTextBox_text);
             this.Controls.Add(this.dateTimePicker_deadline);
             this.Controls.Add(this.button_save_edit_planner_note);
-            this.Controls.Add(this.textBox_date);
             this.Controls.Add(this.textBox_title);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -148,7 +149,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox_title;
-        private System.Windows.Forms.TextBox textBox_date;
         private System.Windows.Forms.Button button_save_edit_planner_note;
         private System.Windows.Forms.DateTimePicker dateTimePicker_deadline;
         private System.Windows.Forms.RichTextBox richTextBox_text;
@@ -156,5 +156,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox_date;
     }
 }

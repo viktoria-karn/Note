@@ -51,11 +51,12 @@ namespace Note
             StreamWriter new_file = new StreamWriter("new_note.txt", false);
             string line;
             for (int i = 0; i < count; ++i)
-            {
+            {               
                 while ((line = file.ReadLine()) != "---###---")
                 {
                     new_file.WriteLine(line);
                 }
+                new_file.WriteLine(line);
             }
 
             new_file.WriteLine((textBox_title.Text).Replace(Environment.NewLine, " "));

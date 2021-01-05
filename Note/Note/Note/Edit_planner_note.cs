@@ -59,6 +59,7 @@ namespace Note
                 {
                     new_file.WriteLine(line);
                 }
+                new_file.WriteLine(line);
             }
 
             new_file.WriteLine((textBox_title.Text).Replace(Environment.NewLine, " "));

@@ -45,13 +45,15 @@
             // 
             this.textBox_title.Location = new System.Drawing.Point(57, 62);
             this.textBox_title.Name = "textBox_title";
-            this.textBox_title.Size = new System.Drawing.Size(144, 20);
+            this.textBox_title.ReadOnly = true;
+            this.textBox_title.Size = new System.Drawing.Size(240, 20);
             this.textBox_title.TabIndex = 0;
             // 
             // textBox_date
             // 
             this.textBox_date.Location = new System.Drawing.Point(57, 130);
             this.textBox_date.Name = "textBox_date";
+            this.textBox_date.ReadOnly = true;
             this.textBox_date.Size = new System.Drawing.Size(179, 20);
             this.textBox_date.TabIndex = 1;
             // 
@@ -59,6 +61,7 @@
             // 
             this.textBox_deadline.Location = new System.Drawing.Point(54, 200);
             this.textBox_deadline.Name = "textBox_deadline";
+            this.textBox_deadline.ReadOnly = true;
             this.textBox_deadline.Size = new System.Drawing.Size(147, 20);
             this.textBox_deadline.TabIndex = 2;
             // 
@@ -88,7 +91,8 @@
             // 
             this.richTextBox_text.Location = new System.Drawing.Point(54, 276);
             this.richTextBox_text.Name = "richTextBox_text";
-            this.richTextBox_text.Size = new System.Drawing.Size(182, 91);
+            this.richTextBox_text.ReadOnly = true;
+            this.richTextBox_text.Size = new System.Drawing.Size(240, 143);
             this.richTextBox_text.TabIndex = 6;
             this.richTextBox_text.Text = "";
             // 
