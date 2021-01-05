@@ -51,6 +51,7 @@
             // 
             this.textBox_date.Location = new System.Drawing.Point(57, 130);
             this.textBox_date.Name = "textBox_date";
+            this.textBox_date.ReadOnly = true;
             this.textBox_date.Size = new System.Drawing.Size(179, 20);
             this.textBox_date.TabIndex = 1;
             // 
